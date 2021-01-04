@@ -1,4 +1,4 @@
-# APC Technical assignment
+# Foxium Technical assignment
 
 ## 🗒 Notes for reviewers
 
