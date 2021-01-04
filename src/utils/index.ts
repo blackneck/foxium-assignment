@@ -21,20 +21,22 @@ const insertResult = (
 export default insertResult;
 
 export const buildReelsContent = (
-  app: PIXI.Application,
+  loader: PIXI.Loader,
   reelsContainer: PIXI.Container
 ) => {
   const reels: Array<ReelContent> = [];
 
+  // columns
   for (let i = 0; i < 3; i++) {
     const reel: ReelContent = {
       symbols: [],
       position: 0,
     };
 
+    // rows
     for (let j = 0; j < 20; j++) {
       const symbolSprite = new PIXI.Sprite(
-        app.loader.resources[
+        loader.resources[
           symbols[Math.floor(Math.random() * symbols.length)]
         ].texture
       );

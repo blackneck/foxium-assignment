@@ -10,7 +10,7 @@ const generateReelsContainer = (app: PIXI.Application): PIXI.Container => {
   );
 
   reelsContainer.x = 0.25 * window.innerWidth;
-  reelsContainer.y = 0.15 * window.innerHeight;
+  reelsContainer.y = 0.05 * window.innerHeight;
   reelsContainer.width = window.innerWidth * 0.5;
   reelsContainer.height = symbolSize * 3;
 
@@ -21,7 +21,7 @@ const generateReelsContainer = (app: PIXI.Application): PIXI.Container => {
 
   const mask = new PIXI.Sprite(PIXI.Texture.WHITE);
   mask.width = window.innerWidth;
-  mask.height = reelsContainer.height;
+  mask.height = symbolSize * 3;
   reelsContainer.addChild(mask);
   reelsContainer.mask = mask;
 
