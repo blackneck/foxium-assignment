@@ -4,7 +4,7 @@ import { symbols, symbolSize } from "common/constants";
 import spinResults from "./../results.json";
 import { ReelContent } from "./types";
 
-const insertResult = (
+export const insertResult = (
   reelsContent: Array<ReelContent>,
   currentMachineState: number
 ) => {
@@ -18,7 +18,6 @@ const insertResult = (
     }
   }
 };
-export default insertResult;
 
 export const buildReelsContent = (
   loader: PIXI.Loader,

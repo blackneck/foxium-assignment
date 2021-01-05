@@ -1,16 +1,21 @@
 import { useEffect } from "react";
 
 import usePixiApp from "hooks/usePixiApp";
+import LoadingScreen from "components/LoadingScreen";
 import "./styles.css";
 
 const App = () => {
-  const { app, winAmount } = usePixiApp();
+  const { app, winAmount, isLoading } = usePixiApp();
 
   useEffect(() => {
-    document.body.appendChild(app.view);
-  }, [app]);
+    if (!isLoading) {
+      document.body.appendChild(app.view);
+    }
+  }, [app, isLoading]);
 
-  return (
+  return isLoading ? (
+    <LoadingScreen />
+  ) : (
     <div className="counter">
       <span className="counter-text">Win:</span>
       <span className="counter-text">USD {winAmount}</span>

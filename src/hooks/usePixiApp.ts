@@ -5,10 +5,15 @@ import spinResults from "../results.json";
 import { assets, miliseconds, symbolSize } from "common/constants";
 import generateReelsContainer from "helpers/generateReelsContainer";
 import generateButton from "helpers/generateButton";
-import insertResult, { buildReelsContent } from "utils";
+import { buildReelsContent, insertResult } from "utils";
 
-const usePixiApp = (): { app: PIXI.Application; winAmount: number } => {
-  const [winAmount, setWinAmount] = useState(0);
+const usePixiApp = (): {
+  app: PIXI.Application;
+  winAmount: number;
+  isLoading: boolean;
+} => {
+  const [winAmount, setWinAmount] = useState<number>(0);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const app = useMemo(
     () =>
@@ -21,12 +26,14 @@ const usePixiApp = (): { app: PIXI.Application; winAmount: number } => {
   );
 
   useEffect(() => {
+    //hate this mutations but assume that redux would bring significant lags for such sensetive values
     let startTime = 0;
     let currentMachineState = 0;
     let isSpinning = false;
     let isFirstLaunch = true;
 
     app.loader.add(assets).load((loader) => {
+      setIsLoading(false);
       app.start();
 
       //reelsContent
@@ -94,10 +101,12 @@ const usePixiApp = (): { app: PIXI.Application; winAmount: number } => {
       });
     });
 
-    return () => app.destroy();
+    return () => {
+      app.destroy();
+    };
   }, [app]);
 
-  return { app, winAmount };
+  return { app, winAmount, isLoading };
 };
 
 export default usePixiApp;
