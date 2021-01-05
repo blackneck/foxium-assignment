@@ -1,6 +1,5 @@
 # Foxium Technical assignment
 
-## 🗒 Notes for reviewers
 
 ## 📦 Install Dependencies
 
