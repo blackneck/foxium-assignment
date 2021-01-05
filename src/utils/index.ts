@@ -1,6 +1,6 @@
 import * as PIXI from "pixi.js";
 
-import { symbols, symbolSize } from "common/constants";
+import { symbols, symbolSize } from "../constants";
 import spinResults from "./../results.json";
 import { ReelContent } from "./types";
 

@@ -1,6 +1,6 @@
 import * as PIXI from "pixi.js";
 
-import { assetsScheme, symbolSize } from "common/constants";
+import { assetsScheme, symbolSize } from "../constants";
 
 const generateButton = (
   app: PIXI.Application,

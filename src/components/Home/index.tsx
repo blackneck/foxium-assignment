@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 
-import usePixiApp from "hooks/usePixiApp";
+import useGameApi from "hooks/useGameApi";
 import LoadingScreen from "components/LoadingScreen";
 import "./styles.css";
 
 const App = () => {
-  const { app, winAmount, isLoading } = usePixiApp();
+  const { app, winAmount, isLoading } = useGameApi();
 
   useEffect(() => {
     if (!isLoading) {

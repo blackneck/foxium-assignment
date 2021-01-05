@@ -1,6 +1,6 @@
 import * as PIXI from "pixi.js";
 
-import { assetsScheme, symbolSize } from "common/constants";
+import { assetsScheme, symbolSize } from "../constants";
 
 const generateReelsContainer = (app: PIXI.Application): PIXI.Container => {
   const reelsContainer = new PIXI.Container();

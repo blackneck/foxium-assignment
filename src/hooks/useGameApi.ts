@@ -2,12 +2,12 @@ import * as PIXI from "pixi.js";
 import { useEffect, useMemo, useState } from "react";
 
 import spinResults from "../results.json";
-import { assets, miliseconds, symbolSize } from "common/constants";
+import { assets, miliseconds, symbolSize } from "../constants";
 import generateReelsContainer from "helpers/generateReelsContainer";
 import generateButton from "helpers/generateButton";
 import { buildReelsContent, insertResult } from "utils";
 
-const usePixiApp = (): {
+const useGameApi = (): {
   app: PIXI.Application;
   winAmount: number;
   isLoading: boolean;
@@ -109,4 +109,4 @@ const usePixiApp = (): {
   return { app, winAmount, isLoading };
 };
 
-export default usePixiApp;
+export default useGameApi;
